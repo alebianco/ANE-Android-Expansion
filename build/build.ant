@@ -2,28 +2,8 @@
 <project name="ANE-Google-Analytics" default="compile" basedir="../">
 
     <!-- Utilities -->
-
-    <target name="-checkos">
-        <condition property="isWindows">
-            <os family="windows"/>
-        </condition>
-        <condition property="isMac">
-            <os family="mac"/>
-        </condition>
-        <condition property="isLinux">
-            <os family="unix"/>
-        </condition>
-    </target>
-    <target name="-if_windows" depends="-checkos" if="isWindows">
-        <property name="platform" value="win"/>
-        <property file="build/build.properties"/>
-        <property file="build/user.properties"/>
-    </target>
-    <target name="-if_mac" depends="-checkos" if="isMac">
-        <property name="platform" value="mac"/>
-        <property file="build/build.properties"/>
-        <property file="build/user.properties"/>
-    </target>
+    <property file="build/build.properties"/>
+    <property file="build/user.properties"/>
 
     <!-- Main targets -->
 
@@ -40,7 +20,7 @@
         <echo>[clean] Build directories removed</echo>
     </target>
 
-    <target name="init" depends="-if_windows, -if_mac, clean"
+    <target name="init" depends="clean"
             description="Create files and folders needed for the build process">
 
         <echo>[init] Creating Build directories</echo>
