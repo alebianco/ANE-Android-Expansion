@@ -8,7 +8,7 @@
 	<platforms>
 		<platform name="Android-ARM">
 			<applicationDeployment>
-				<nativeLibrary>libExpansionExtension.jar</nativeLibrary>
+				<nativeLibrary>libANE-Android-Expansion.jar</nativeLibrary>
 				<initializer>eu.alebianco.air.extensions.expansion.XAPKExtension</initializer>
 				<finalizer>eu.alebianco.air.extensions.expansion.XAPKExtension</finalizer>
 			</applicationDeployment>
