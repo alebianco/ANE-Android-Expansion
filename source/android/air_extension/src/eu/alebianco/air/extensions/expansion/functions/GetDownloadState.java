@@ -42,7 +42,7 @@ public class GetDownloadState implements FREFunction {
 
         int state = XAPKContext.client.state;
 
-        int messageID = Helpers.getDownloaderStringResourceIDFromState(context.getActivity().getApplicationContext(), state);
+        int messageID = Helpers.getDownloaderStringResourceIDFromState(state);
         String message = context.getActivity().getString(messageID);
 
         FREObject result = null;
