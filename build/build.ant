@@ -162,26 +162,6 @@
 
     <target name="ext_package">
         <!-- Package the final extension -->
-        <antcall target="ext_package-win" />
-        <antcall target="ext_package-mac" />
-    </target>
-
-    <target name="ext_package-mac" if="isMac">
-        <!-- Package the final extension for mac platforms -->
-        <java jar="${FLEX_HOME}/lib/adt.jar" fork="true" failonerror="true">
-            <arg line="-package"/>
-            <arg line="-storetype pkcs12"/>
-            <arg line="-keystore ${crt.file}"/>
-            <arg line="-storepass ${crt.password}"/>
-            <arg line="-tsa none"/>
-            <arg line="-target ane ${bin.dir}/${project.name.versioned}.ane ${extension.descriptor}"/>
-            <arg line="-swc bin/${project.name.versioned}.swc"/>
-            <arg line="-platform Android-ARM -C ${bin.and.dir} ."/>
-            <arg line="-platform default -C ${bin.def.dir} ."/>
-        </java>
-    </target>
-    <target name="ext_package-win" if="isWindows">
-        <!-- Package the final extension for windows platforms -->
         <java jar="${FLEX_HOME}/lib/adt.jar" fork="true" failonerror="true">
             <arg line="-package"/>
             <arg line="-storetype pkcs12"/>
