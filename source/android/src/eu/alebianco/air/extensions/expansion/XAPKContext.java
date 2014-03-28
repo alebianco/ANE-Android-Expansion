@@ -16,10 +16,6 @@ public class XAPKContext extends FREContext {
     public void initialize() {
 
         client = new DownloaderClient(this);
-
-        // TODO: use the google play zip library to handle expansion archives
-        // TODO: improve expansion extraction to publish progress and status informations to clients
-        // TODO: make the XAPK context the downloader client itself
     }
 
     @Override
