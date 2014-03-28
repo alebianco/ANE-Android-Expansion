@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<extension xmlns="http://ns.adobe.com/air/extension/13.0">
+	<id>eu.alebianco.air.extensions.expansion</id>
+    <name>Android App Expansion AIR Extension</name>
+    <description>Allow AIR applications for Android to break the 50mb limit and use expansion files.</description>
+    <copyright>Copyright (c) 2011 - 2013 Alessandro Bianco</copyright>
+    <versionNumber>1.0.0</versionNumber>
+	<platforms>
+		<platform name="Android-ARM">
+			<applicationDeployment>
+				<nativeLibrary>libExpansionExtension.jar</nativeLibrary>
+				<initializer>eu.alebianco.air.extensions.expansion.XAPKExtension</initializer>
+				<finalizer>eu.alebianco.air.extensions.expansion.XAPKExtension</finalizer>
+			</applicationDeployment>
+		</platform>
+		<platform name="default">
+			<applicationDeployment/>
+		</platform>
+	</platforms>
+</extension>
+

@@ -1,0 +1,4 @@
+# Copy and rename this file to user.properties to override default properties
+
+FLEX_HOME = /Applications/ApacheFlex/4.12.0
+ANDROID_HOME = /Applications/android/sdk
