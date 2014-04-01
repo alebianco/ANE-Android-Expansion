@@ -24,7 +24,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package eu.alebianco.air.extensions.utils;
+package eu.alebianco.air.extensions.expansion.utils;
 
 import android.util.Log;
 

@@ -35,8 +35,8 @@ import com.adobe.fre.FRETypeMismatchException;
 import com.adobe.fre.FREWrongThreadException;
 
 import eu.alebianco.air.extensions.expansion.model.Security;
-import eu.alebianco.air.extensions.utils.FREUtils;
-import eu.alebianco.air.extensions.utils.LogLevel;
+import eu.alebianco.air.extensions.expansion.utils.FREUtils;
+import eu.alebianco.air.extensions.expansion.utils.LogLevel;
 
 public class SetMarketSecurity implements FREFunction {
 

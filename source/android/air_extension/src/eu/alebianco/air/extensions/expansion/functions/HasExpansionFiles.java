@@ -40,8 +40,8 @@ import com.adobe.fre.FREWrongThreadException;
 import com.google.android.vending.expansion.downloader.Helpers;
 
 import eu.alebianco.air.extensions.expansion.model.ExpansionFile;
-import eu.alebianco.air.extensions.utils.FREUtils;
-import eu.alebianco.air.extensions.utils.LogLevel;
+import eu.alebianco.air.extensions.expansion.utils.FREUtils;
+import eu.alebianco.air.extensions.expansion.utils.LogLevel;
 
 public class HasExpansionFiles implements FREFunction {
 

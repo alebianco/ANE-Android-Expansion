@@ -39,8 +39,8 @@ import eu.alebianco.air.extensions.expansion.XAPKContext;
 import eu.alebianco.air.extensions.expansion.model.enums.DownloadEventCode;
 import eu.alebianco.air.extensions.expansion.model.enums.StatusEventLevel;
 import eu.alebianco.air.extensions.expansion.services.XAPKDownloaderService;
-import eu.alebianco.air.extensions.utils.FREUtils;
-import eu.alebianco.air.extensions.utils.LogLevel;
+import eu.alebianco.air.extensions.expansion.utils.FREUtils;
+import eu.alebianco.air.extensions.expansion.utils.LogLevel;
 
 public class DownloadExpansions implements FREFunction {
 

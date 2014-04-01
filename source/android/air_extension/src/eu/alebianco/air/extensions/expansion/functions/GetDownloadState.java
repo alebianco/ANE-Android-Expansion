@@ -32,8 +32,8 @@ import com.adobe.fre.FREObject;
 import com.google.android.vending.expansion.downloader.Helpers;
 
 import eu.alebianco.air.extensions.expansion.XAPKContext;
-import eu.alebianco.air.extensions.utils.FREUtils;
-import eu.alebianco.air.extensions.utils.LogLevel;
+import eu.alebianco.air.extensions.expansion.utils.FREUtils;
+import eu.alebianco.air.extensions.expansion.utils.LogLevel;
 
 public class GetDownloadState implements FREFunction {
 
