@@ -34,7 +34,7 @@ Declare (extra) permissions in your AIR application descriptor:
 
 ActionScript initial setup:
 
-```
+```actionscript
 // get your API key from your Google store publisher account
 var PUBLIC_KEY:String = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAl7ARg/syoLy9O9RQgiYiHQXE/gj4YxkGDeGxBmPZuE/XNAHHZt7Ur1QHXK9skFJs0wwTnBF0jKYaspHLp42SlifT5zoTd/+4csFS8sSO8HO/AECirVYzT6X5cqhUU4ftGFErzvuJfNXn7xm5zeVCnAji7+nT8Q36PH7JopYfQkBAzxJvvyoPapTdV8ta0Nr9bjW6/T87pe7TKECXVbKPAU6/BME+YBfdLzMLV3AEEndBJNUOTdOdbwcRdk+JoJgnWqMNll6AKHn/1dph45zfyDNYQUrY1yRrZRiz9C0sSJcpmQsKzRZUrrKk+qNqgCAKeeGgCLGiie7ASBdLnn0lFQIDAQAB";
 // randomly generate 20 bytes. You can use a generator: https://www.random.org/integers/?num=20&min=-255&max=255&col=5&base=10&format=html&rnd=new
