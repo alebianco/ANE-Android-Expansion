@@ -20,18 +20,21 @@ package eu.alebianco.air.extensions.expansion.enum
 		
 		public static const PAUSED_WIFI_DISABLED_NEED_CELLULAR_PERMISSION:DownloaderClientState = new DownloaderClientState();
 		public static const PAUSED_NEED_CELLULAR_PERMISSION:DownloaderClientState = new DownloaderClientState();
+
+		public static const PAUSED_WIFI_DISABLED:DownloaderClientState = new DownloaderClientState();
+		public static const PAUSED_NEED_WIFI:DownloaderClientState = new DownloaderClientState();
 		public static const PAUSED_ROAMING:DownloaderClientState = new DownloaderClientState();
-		
+
 		public static const PAUSED_NETWORK_SETUP_FAILURE:DownloaderClientState = new DownloaderClientState();
 		public static const PAUSED_SDCARD_UNAVAILABLE:DownloaderClientState = new DownloaderClientState();
-		
+
 		public static const FAILED_UNLICENSED:DownloaderClientState = new DownloaderClientState();
 		public static const FAILED_FETCHING_URL:DownloaderClientState = new DownloaderClientState();
 		public static const FAILED_SDCARD_FULL:DownloaderClientState = new DownloaderClientState();
 		public static const FAILED_CANCELED:DownloaderClientState = new DownloaderClientState();
 		
 		public static const FAILED:DownloaderClientState = new DownloaderClientState();
-		
+
 		// Constant query.
 		
 		public static function getConstants():Vector.<DownloaderClientState>
