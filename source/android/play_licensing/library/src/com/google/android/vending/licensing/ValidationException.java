@@ -22,11 +22,11 @@ package com.google.android.vending.licensing;
  */
 public class ValidationException extends Exception {
     public ValidationException() {
-        super();
+      super();
     }
 
     public ValidationException(String s) {
-        super(s);
+      super(s);
     }
 
     private static final long serialVersionUID = 1L;

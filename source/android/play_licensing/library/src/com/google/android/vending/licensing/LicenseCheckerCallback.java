@@ -18,14 +18,14 @@ package com.google.android.vending.licensing;
 
 /**
  * Callback for the license checker library.
- * <p/>
+ * <p>
  * Upon checking with the Market server and conferring with the {@link Policy},
  * the library calls the appropriate callback method to communicate the result.
- * <p/>
+ * <p>
  * <b>The callback does not occur in the original checking thread.</b> Your
  * application should post to the appropriate handling thread or lock
  * accordingly.
- * <p/>
+ * <p>
  * The reason that is passed back with allow/dontAllow is the base status handed
  * to the policy for allowed/disallowing the license. Policy.RETRY will call
  * allow or dontAllow depending on other statistics associated with the policy,
@@ -36,24 +36,22 @@ public interface LicenseCheckerCallback {
 
     /**
      * Allow use. App should proceed as normal.
-     *
+     * 
      * @param reason Policy.LICENSED or Policy.RETRY typically. (although in
-     *               theory the policy can return Policy.NOT_LICENSED here as well)
+     *            theory the policy can return Policy.NOT_LICENSED here as well)
      */
     public void allow(int reason);
 
     /**
      * Don't allow use. App should inform user and take appropriate action.
-     *
+     * 
      * @param reason Policy.NOT_LICENSED or Policy.RETRY. (although in theory
-     *               the policy can return Policy.LICENSED here as well ---
-     *               perhaps the call to the LVL took too long, for example)
+     *            the policy can return Policy.LICENSED here as well ---
+     *            perhaps the call to the LVL took too long, for example)
      */
     public void dontAllow(int reason);
 
-    /**
-     * Application error codes.
-     */
+    /** Application error codes. */
     public static final int ERROR_INVALID_PACKAGE_NAME = 1;
     public static final int ERROR_NON_MATCHING_UID = 2;
     public static final int ERROR_NOT_MARKET_MANAGED = 3;

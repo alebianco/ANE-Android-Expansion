@@ -34,12 +34,12 @@ import android.util.Log;
  * from the licensing service. Specifically, the licensing server sends the
  * following information: response validity period, error retry period, and
  * error retry count.
- * <p/>
+ * <p>
  * These values will vary based on the the way the application is configured in
  * the Android Market publishing console, such as whether the application is
  * marked as free or is within its refund period, as well as how often an
  * application is checking with the licensing service.
- * <p/>
+ * <p>
  * Developers who need more fine grained control over their application's
  * licensing policy should implement a custom Policy.
  */
@@ -68,7 +68,7 @@ public class ServerManagedPolicy implements Policy {
     private PreferenceObfuscator mPreferences;
 
     /**
-     * @param context    The context for the current application
+     * @param context The context for the current application
      * @param obfuscator An obfuscator to be used with preferences.
      */
     public ServerManagedPolicy(Context context, Obfuscator obfuscator) {
@@ -76,7 +76,7 @@ public class ServerManagedPolicy implements Policy {
         SharedPreferences sp = context.getSharedPreferences(PREFS_FILE, Context.MODE_PRIVATE);
         mPreferences = new PreferenceObfuscator(sp, obfuscator);
         mLastResponse = Integer.parseInt(
-                mPreferences.getString(PREF_LAST_RESPONSE, Integer.toString(Policy.RETRY)));
+            mPreferences.getString(PREF_LAST_RESPONSE, Integer.toString(Policy.RETRY)));
         mValidityTimestamp = Long.parseLong(mPreferences.getString(PREF_VALIDITY_TIMESTAMP,
                 DEFAULT_VALIDITY_TIMESTAMP));
         mRetryUntil = Long.parseLong(mPreferences.getString(PREF_RETRY_UNTIL, DEFAULT_RETRY_UNTIL));
@@ -86,18 +86,18 @@ public class ServerManagedPolicy implements Policy {
 
     /**
      * Process a new response from the license server.
-     * <p/>
+     * <p>
      * This data will be used for computing future policy decisions. The
      * following parameters are processed:
      * <ul>
      * <li>VT: the timestamp that the client should consider the response
-     * valid until
+     *   valid until
      * <li>GT: the timestamp that the client should ignore retry errors until
      * <li>GR: the number of retry errors that the client should ignore
      * </ul>
      *
      * @param response the result from validating the server response
-     * @param rawData  the raw server response data
+     * @param rawData the raw server response data
      */
     public void processServerResponse(int response, ResponseData rawData) {
 
@@ -203,7 +203,7 @@ public class ServerManagedPolicy implements Policy {
     }
 
     public long getRetryUntil() {
-        return mRetryUntil;
+      return mRetryUntil;
     }
 
     /**
@@ -234,7 +234,7 @@ public class ServerManagedPolicy implements Policy {
 
     /**
      * {@inheritDoc}
-     * <p/>
+     *
      * This implementation allows access if either:<br>
      * <ol>
      * <li>a LICENSED response was received within the validity period
@@ -251,7 +251,7 @@ public class ServerManagedPolicy implements Policy {
                 return true;
             }
         } else if (mLastResponse == Policy.RETRY &&
-                ts < mLastResponseTime + MILLIS_PER_MINUTE) {
+                   ts < mLastResponseTime + MILLIS_PER_MINUTE) {
             // Only allow access if we are within the retry period or we haven't used up our
             // max retries.
             return (ts <= mRetryUntil || mRetryCount <= mMaxRetries);
@@ -268,7 +268,7 @@ public class ServerManagedPolicy implements Policy {
                 results.put(item.getName(), item.getValue());
             }
         } catch (URISyntaxException e) {
-            Log.w(TAG, "Invalid syntax error while decoding extras data from server.");
+          Log.w(TAG, "Invalid syntax error while decoding extras data from server.");
         }
         return results;
     }
