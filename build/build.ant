@@ -97,30 +97,20 @@
     <target name="ext_and">
         <!-- Build Android native library -->
         <mkdir dir="${bin.and.dir}"/>
-        <mkdir dir="${tmp.dir}"/>
         <ant antfile="build.xml" target="-compile" dir="${src.and.dir}" inheritall="false">
             <property name="build.target" value="-compile"/>
             <property name="verbose" value="false"/>
             <property name="renderscript.opt.level" value="O0"/>
             <property name="env.ANDROID_HOME" value="${ANDROID_HOME}"/>
         </ant>
-        <jar destfile="${tmp.dir}/lib${project.name}.jar">
-            <fileset dir="${src.and.dir}/bin/classes"/>
-            <restrict>
-                <name name="**/*.class"/>
-                <archives>
-                    <zips>
-                        <fileset dir="${src.and.dir}/libs" includes="**/*.jar"
-                                 excludes="**/FlashRuntimeExtensions.jar"/>
-                    </zips>
-                </archives>
-            </restrict>
-        </jar>
-        <copy todir="${bin.and.dir}/res" overwrite="true">
-            <fileset dir="${src.and.dir}/res"/>
+        <copy todir="${bin.and.dir}/downloader-res" overwrite="true">
+            <fileset dir="${ext.dir}/android/play_apk_expansion/downloader_library/res"/>
         </copy>
-        <copy file="${tmp.dir}/lib${project.name}.jar" todir="${bin.and.dir}" overwrite="true"/>
-        <delete dir="${tmp.dir}"/>
+        <copy file="${ext.dir}/android/air_extension/libs/commons-io-2.3.jar" todir="${bin.and.dir}" overwrite="true"/>
+        <copy file="${ext.dir}/android/play_apk_expansion/downloader_library/bin/classes.jar" tofile="${bin.and.dir}/expansion-downloader.jar" overwrite="true"/>
+        <copy file="${ext.dir}/android/play_apk_expansion/zip_file/bin/classes.jar" tofile="${bin.and.dir}/zip-file.jar" overwrite="true"/>
+        <copy file="${ext.dir}/android/play_licensing/library/bin/classes.jar" tofile="${bin.and.dir}/play-licensing.jar" overwrite="true"/>
+        <copy file="${ext.dir}/android/air_extension/bin/classes.jar" tofile="${bin.and.dir}/lib${project.name}.jar" overwrite="true"/>
     </target>
 
     <target name="ext_as3-default">
@@ -171,6 +161,7 @@
             <arg line="-target ane ${bin.dir}/${project.name.versioned}.ane ${extension.descriptor}"/>
             <arg line="-swc bin/${project.name.versioned}.swc"/>
             <arg line="-platform Android-ARM -C ${bin.and.dir} ."/>
+            <arg line="-platformoptions ${basedir}/build/platform.xml"/>
             <arg line="-platform default -C ${bin.def.dir} ."/>
         </java>
     </target>

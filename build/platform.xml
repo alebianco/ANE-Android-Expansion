@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<platform xmlns="http://ns.adobe.com/air/extension/16.0">
+    <description>android expansions</description>
+    <copyright>Copyright (c) 2011 - 2013 Alessandro Bianco</copyright>
+    <packagedDependencies>
+        <packagedDependency>expansion-downloader.jar</packagedDependency>
+        <packagedDependency>play-licensing.jar</packagedDependency>
+        <packagedDependency>zip-file.jar</packagedDependency>
+        <packagedDependency>commons-io-2.3.jar</packagedDependency>
+    </packagedDependencies>
+    <packagedResources>
+        <packagedResource>
+            <packageName>com.android.vending.expansion.downloader</packageName>
+            <folderName>downloader-res</folderName>
+        </packagedResource>
+    </packagedResources>
+</platform>
