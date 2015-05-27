@@ -284,13 +284,13 @@ package eu.alebianco.air.extensions.expansion
 				
 				switch(true)
 				{
-					case status && STATUS_SECURITY == 0:
+					case (status & STATUS_SECURITY) == 0:
 					{
 						message = "You havent configured the market security. Plase call setupMarketSecurity() to setup your data.";
 						break;
 					}
 						
-					case status && STATUS_EXPANSIONS == 0:
+					case (status & STATUS_EXPANSIONS) == 0:
 					{
 						message = "You haven't required any expansion file, so why bothering to use this extension at all?";
 						break;
