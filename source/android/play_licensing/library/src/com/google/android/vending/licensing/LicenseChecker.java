@@ -100,7 +100,7 @@ public class LicenseChecker implements ServiceConnection {
     /**
      * Generates a PublicKey instance from a string containing the
      * Base64-encoded public key.
-     * 
+     *
      * @param encodedPublicKey Base64-encoded public key
      * @throws IllegalArgumentException if encodedPublicKey is invalid
      */
@@ -146,13 +146,22 @@ public class LicenseChecker implements ServiceConnection {
             if (mService == null) {
                 Log.i(TAG, "Binding to licensing service.");
                 try {
-                    boolean bindResult = mContext
-                            .bindService(
-                                    new Intent(
-                                            new String(
-                                                    Base64.decode("Y29tLmFuZHJvaWQudmVuZGluZy5saWNlbnNpbmcuSUxpY2Vuc2luZ1NlcnZpY2U="))),
-                                    this, // ServiceConnection.
-                                    Context.BIND_AUTO_CREATE);
+                    // boolean bindResult = mContext
+                    //         .bindService(
+                    //                 new Intent(
+                    //                         new String(
+                    //                                 Base64.decode("Y29tLmFuZHJvaWQudmVuZGluZy5saWNlbnNpbmcuSUxpY2Vuc2luZ1NlcnZpY2U="))),
+                    //                 this, // ServiceConnection.
+                    //                 Context.BIND_AUTO_CREATE);
+
+                    // 12/15/17 - workaround for crash bug,
+                    // see https://stackoverflow.com/questions/30059716/android-app-crashes-on-lollipop-service-intent-must-be-explicit
+                    Intent serviceIntent = new Intent(new String(Base64.decode("Y29tLmFuZHJvaWQudmVuZGluZy5saWNlbnNpbmcuSUxpY2Vuc2luZ1NlcnZpY2U=")));
+                    serviceIntent.setPackage("com.android.vending");
+
+                    boolean bindResult = mContext.bindService(serviceIntent,
+                                                              this, // ServiceConnection.
+                                                              Context.BIND_AUTO_CREATE);
 
                     if (bindResult) {
                         mPendingChecks.offer(validator);
@@ -334,7 +343,7 @@ public class LicenseChecker implements ServiceConnection {
 
     /**
      * Get version code for the application package name.
-     * 
+     *
      * @param context
      * @param packageName application package name
      * @return the version code or empty string if package not found
